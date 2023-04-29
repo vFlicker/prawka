@@ -1,0 +1,111 @@
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 14px;
+}
+
+.title {
+  margin: 0;
+}
+
+.statusText {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #A6A6A6;
+}
+
+/* USER INFO */
+.userInfoWrapper {
+  order: -1;
+
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 24px;
+}
+
+.avatar {
+  margin-right: 16px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-bottom: 6px;
+
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.app {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* LIST  */
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.itemContent {
+  max-width: 212px;
+}
+
+.itemTitle {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.2;
+
+  margin: 0 0 10px;
+}
+
+.itemFiles {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #818181;
+}
+
+.itemStatus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100px;
+  height: 33px;
+
+  border-radius: 10px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+
+  background-color: #FFB800;
+}
+
