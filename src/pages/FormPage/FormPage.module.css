@@ -1,0 +1,118 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+.input.blue {
+  color: rgba(76, 72, 255, 1);
+}
+
+.textarea {
+  min-height: 145px;
+}
+
+.fileWrapper {
+  margin-bottom: 16px;
+}
+
+.legend {
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #2E2E2E;
+
+  margin-bottom: 4px;
+}
+
+.radioList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+.radioInput {
+  /* Reset appearance: */
+  -webkit-appearance: none;
+  appearance: none;
+
+  /* Visually Hidden: */
+  position: absolute;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+
+  /* Fix Webkit and Chromium Layout Issue: */
+  left: 0;
+}
+
+.radioItem:nth-child(1) .radioLabel {
+  background-color: #FFA5A5;
+}
+
+.radioItem:nth-child(2) .radioLabel {
+  background-color: #FFD0A5;
+}
+
+.radioItem:nth-child(3) .radioLabel {
+  background-color: #FFF6A5;
+}
+
+.radioItem:nth-child(4) .radioLabel {
+  background-color: #E8FFA5;
+}
+
+.radioItem:nth-child(5) .radioLabel {
+  background-color: #A6FFA5;
+}
+
+.radioLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+
+  font-family: 'SKRAPPA';
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+
+
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.radioInput:checked + .radioLabel,
+.radioInput:hover + .radioLabel,
+.radioInput:focus + .radioLabel {
+  box-shadow: inset 0px 0px 0px 3px black;
+}
+
+.button {
+  padding: 20px;
+  border-radius: 4px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: white;
+
+  background-color: #171717;
+}

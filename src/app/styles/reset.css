@@ -27,6 +27,28 @@ img {
   vertical-align: middle;
 }
 
+input[type=text],
+textarea {
+  padding: 23px 16px 20px;
+  border-radius: 8px;
+  border: 0;
+
+  font-weight: 500;
+  line-height: 14px;
+
+  background-color: #D8E6EB;
+}
+
+input[type=text]::placeholder,
+textarea::placeholder {
+  color: rgba(133, 133, 133, 1);
+  font-weight: 400;
+}
+
+textarea {
+  resize: none;
+}
+
 button {
   -webkit-appearance: none;
   appearance: none;

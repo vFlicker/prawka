@@ -1,16 +1,11 @@
-import { Header } from '~/components/Header';
-
 import classes from './ListPage.module.css';
 
 export function ListPage(): JSX.Element {
   return (
     <>
-      <Header />
-      <main className={classes.main}>
-        <Heading />
-        <UserInfo />
-        <List />
-      </main>
+      <Heading />
+      <UserInfo />
+      <List />
     </>
   );
 }
