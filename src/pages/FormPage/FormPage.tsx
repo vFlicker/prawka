@@ -1,53 +1,72 @@
+import axios from 'axios';
 import classNames from 'classnames';
-import { FormEvent } from 'react';
+import { MouseEvent, useState } from 'react';
+
 import { ImageUploader } from '~/components/ImageUploader';
+
 import classes from './FormPage.module.css';
 
 export function FormPage(): JSX.Element {
-  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
+  const [title, setTitle] = useState('');
+  const [link, setLink] = useState('');
+  const [description, setDescription] = useState('');
+  const [images, setImages] = useState<File[]>([]);
+  const [priority, setPriority] = useState('1');
+
+  const handleSubmit = (evt: MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
 
-    // const form = evt.target;
-    // const formData = new FormData(form);
+    const formData = new FormData();
 
-    // const formJson = Object.fromEntries(formData.entries());
+    formData.append('title', title);
+    formData.append('link', link);
+    formData.append('description', description);
+    formData.append('priority', priority);
 
-    // console.log(formJson);
+    images.forEach((image) => formData.append('images', image));
+
+    console.log({ formData });
+
+    axios
+      .post('http://localhost:3000/create', formData)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.error(err));
   };
 
   return (
     <>
       <h1>Добавить правку</h1>
-      <form
-        action="#"
-        method="post"
-        className={classes.form}
-        onSubmit={handleSubmit}
-      >
+      <form className={classes.form}>
         <div className={classes.inputsWrapper}>
           <input
             type="text"
             name="title"
             placeholder="В одно предложение, что нужно сделать?"
             className={classes.input}
+            value={title}
+            onChange={(evt) => setTitle(evt.target.value)}
           />
           <input
             type="text"
             name="link"
             placeholder="Ссылка на страницу"
             className={classNames(classes.input, classes.blue)}
+            value={link}
+            onChange={(evt) => setLink(evt.target.value)}
           />
           <textarea
             name="description"
             placeholder="А теперь расскажите подробнее"
             className={classes.textarea}
+            value={description}
+            onChange={(evt) => setDescription(evt.target.value)}
           />
         </div>
         <div className={classes.fileWrapper}>
           <div className={classes.legend}>
             Добавьте скриншоты в JPEG или PNG
           </div>
-          <ImageUploader />
+          <ImageUploader images={images} setImages={setImages} />
         </div>
         <div>
           <div className={classes.legend}>Приоритет</div>
@@ -60,6 +79,8 @@ export function FormPage(): JSX.Element {
                     name="priority"
                     value={id}
                     className={classes.radioInput}
+                    checked={Number(priority) === id}
+                    onChange={(evt) => setPriority(evt.target.value)}
                   />
                   <span className={classes.radioLabel}>{id}</span>
                 </label>
@@ -67,7 +88,7 @@ export function FormPage(): JSX.Element {
             ))}
           </ul>
         </div>
-        <button type="submit" className={classes.button}>
+        <button type="submit" className={classes.button} onClick={handleSubmit}>
           Добавить правку
         </button>
       </form>

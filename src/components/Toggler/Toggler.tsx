@@ -1,21 +1,19 @@
 import classNames from 'classnames';
-import { useState } from 'react';
 
 import classes from './Toggler.module.css';
 
-export function Toggler(): JSX.Element {
-  const [isOpen, setIsOpen] = useState(false);
+type TogglerProps = {
+  isOpen: boolean;
+  onToggle: () => void;
+};
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
-
+export function Toggler({ isOpen, onToggle }: TogglerProps): JSX.Element {
   const className = classNames(classes.button, {
     [classes.active]: isOpen,
   });
 
   return (
-    <button className={className} onClick={handleClick}>
+    <button className={className} onClick={onToggle}>
       <span className="visually-hidden">Переключить форму</span>
     </button>
   );
