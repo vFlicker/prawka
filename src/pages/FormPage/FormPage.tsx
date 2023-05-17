@@ -1,8 +1,9 @@
-import axios from 'axios';
 import classNames from 'classnames';
 import { MouseEvent, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { ImageUploader } from '~/components/ImageUploader';
+import { apiService } from '~/services/api';
 
 import classes from './FormPage.module.css';
 
@@ -13,7 +14,7 @@ export function FormPage(): JSX.Element {
   const [images, setImages] = useState<File[]>([]);
   const [priority, setPriority] = useState('1');
 
-  const handleSubmit = (evt: MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = async (evt: MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
 
     const formData = new FormData();
@@ -25,12 +26,17 @@ export function FormPage(): JSX.Element {
 
     images.forEach((image) => formData.append('images', image));
 
-    console.log({ formData });
+    try {
+      await apiService.postData(formData);
 
-    axios
-      .post('http://localhost:3000/create', formData)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.error(err));
+      toast.success('😎 правка добавлена', {
+        position: toast.POSITION.TOP_CENTER,
+        className: 'toast-message',
+        autoClose: false,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

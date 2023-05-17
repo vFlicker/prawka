@@ -1,0 +1,25 @@
+.toast-message {
+  border-radius: 0px 0px 16px 16px;
+
+  color: #ffffff;
+  text-align: center;
+  font-family: inherit;
+
+  background-color: #1B1B1B;
+}
+
+.Toastify__toast-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  padding: 0;
+
+  transform: translateX(0);
+}
+
+.toast-message .Toastify__toast-icon,
+.toast-message .Toastify__close-button {
+  display: none;
+}

@@ -96,7 +96,13 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.2;
+}
 
+.itemStatus.inProgress {
   background-color: #FFB800;
 }
 
+.itemStatus.ready {
+  color: #ffffff;
+  background-color: #00ad3b;
+}

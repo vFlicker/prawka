@@ -78,10 +78,11 @@ a {
 }
 
 #app {
-  width: 390px;
-  height: 100%;
-
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  min-height: 100vh;
+  margin: 0 auto;
   padding: 23.5px 15px;
-
   background-color: #EBFAFF;
 }
